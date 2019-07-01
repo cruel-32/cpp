@@ -1,4 +1,8 @@
 #include <iostream>
+// 설정하고 하시오.
+// "code-runner.executorMap": {
+//     "cpp": "cd $dir && g++ $fileName -o $fileNameWithoutExt && $dir$fileNameWithoutExt",
+// }
 
 using namespace std;
 
