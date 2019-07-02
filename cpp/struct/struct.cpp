@@ -14,6 +14,7 @@ int main()
 {
     Struct s1 = {10, 20, 'c', 0xf2f, {0,1,2}}; //구조체 선언과 초기화.
     Struct s2;  //구조체 선언.
+    Struct s3;  //구조체 선언.
 
     cout << "s1.si1 : " << s1.si1 << "\n";
     cout << "s1.si2 : " << s1.si2 << "\n";
@@ -40,6 +41,14 @@ int main()
     //전혀 없다. 배열마저 참조가 아닌 복사가 일어난다.
     for(int i=0; i<sizeof(s2.arri)/sizeof(s2.arri[0]); i++){
         cout << "s2.arri[i] : " << s2.arri[i] << "\n";
+    }
+
+    s3 = {s2.si1, s2.si2, s2.sc, s2.sl, {4,5,6}}; //다만 배열을 이런 방식으로 복사가 되지 않는다.
+    //구조체의 원소를 각각 복사해보았다.
+    cout << "s3.si1 : " << s3.si1 << "\n"; //잘 복사됨
+    cout << "s3.si2 : " << s3.si2 << "\n";
+    for(int i=0; i<sizeof(s3.arri)/sizeof(s3.arri[0]); i++){
+        cout << "s3.arri[i] : " << s3.arri[i] << "\n";
     }
 
     return 0;
