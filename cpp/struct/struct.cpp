@@ -2,7 +2,9 @@
 #include <iostream>
 using namespace std;
 
-struct Struct {
+
+
+struct TestStruct {
     int si1;
     int si2;
     char sc;
@@ -10,11 +12,34 @@ struct Struct {
     int arri[3];
 };
 
+struct TestStructBit {
+    int stbi : 5; //비트제한두기 바이트 x
+    char stbc1 : 8; 
+    char stbc2 : 8; 
+};
+
+struct Person {
+    char name[20];
+    char nick;
+    int arri[3];
+};
+
+void call(struct Person pp){ //구조체의 멤버들도 복사해온다
+    cout << "pp.name : " << pp.name << "\n";
+    cout << "pp.nick : " << pp.nick << "\n";
+    cout << "pp.arri[0] : " << pp.arri[0] << "\n";
+
+    //값변경
+    strcpy(pp.name, "홍길동");
+    pp.nick = 'b';
+    pp.arri[0] = 50;
+};
+
 int main()
 {
-    Struct s1 = {10, 20, 'c', 0xf2f, {0,1,2}}; //구조체 선언과 초기화.
-    Struct s2;  //구조체 선언.
-    Struct s3;  //구조체 선언.
+    TestStruct s1 = {10, 20, 'c', 0xf2f, {0,1,2}}; //구조체 선언과 초기화.
+    TestStruct s2;  //구조체 선언.
+    TestStruct s3;  //구조체 선언.
 
     cout << "s1.si1 : " << s1.si1 << "\n";
     cout << "s1.si2 : " << s1.si2 << "\n";
@@ -50,6 +75,25 @@ int main()
     for(int i=0; i<sizeof(s3.arri)/sizeof(s3.arri[0]); i++){
         cout << "s3.arri[i] : " << s3.arri[i] << "\n";
     }
+
+
+    TestStructBit stb = {3,'a','c'};
+
+    cout << "stb.stbi : " << stb.stbi << "\n";
+    cout << "stb.stbc1 : " << stb.stbc1 << "\n";
+    cout << "sizeof(stb) : " << sizeof(stb) << "\n";
+
+
+    Person p = {"아무개", 'a', {10,11,12}}; //구조체 선언과 초기화.
+    cout << "p.name : " << p.name << "\n";
+    cout << "p.nick : " << p.nick << "\n";
+    cout << "p.arri[0] : " << p.arri[0] << "\n";
+
+    call(p);
+
+    cout << "p.name : " << p.name << "\n"; //call에서 값을 변경했지만 영향을 미치지 않는다. 참조가 아닌 값 복사였기 때문
+    cout << "p.nick : " << p.nick << "\n";
+    cout << "p.arri[0] : " << p.arri[0] << "\n";
 
     return 0;
 }
