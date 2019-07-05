@@ -2,8 +2,6 @@
 #include <iostream>
 using namespace std;
 
-
-
 struct TestStruct {
     int si1;
     int si2;
@@ -24,12 +22,13 @@ struct Person {
     int arri[3];
 };
 
-void call(struct Person pp){ //구조체의 멤버들도 복사해온다
+void call(struct Person pp){ //구조체의 멤버들도 복사해온다. 메모리 성능 저하를 발생시킬 수 있으므로 실 사용할 때에는 레퍼런스 사용하는 것이 좋다.
     cout << "pp.name : " << pp.name << "\n";
     cout << "pp.nick : " << pp.nick << "\n";
     cout << "pp.arri[0] : " << pp.arri[0] << "\n";
 
     //값변경
+    //복사해온 값이기 때문에 변하지 않는다.
     strcpy(pp.name, "홍길동");
     pp.nick = 'b';
     pp.arri[0] = 50;
