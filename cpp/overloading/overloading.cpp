@@ -17,6 +17,14 @@ using namespace std;
 // void max(int i);
 // void max(int& i);
 
+//디폴트 인자
+void setDefault(int numberA, int numberB = 20, int numberC = 30) //인자값을 넘기지 않으면 디폴트 인자가 넘어간다. 다만 디폴트 인자는 오른쪽으로 몰아넣어야 한다.
+{
+    cout << "numberA : " << numberA << "\n";
+    cout << "numberB : " << numberB << "\n";
+    cout << "numberC : " << numberC << "\n";
+}
+
 int main()
 {
     //오버로딩 테스트1
@@ -37,6 +45,11 @@ int main()
     // 2.승진에 의한 형변환
     // 3.표준 형변환
     // 4.사용자에 의한 형변환
+
+    setDefault(10); //인자값을 넘기지 않으면 디폴트 인자가 넘어간다.
+
+    //오버로딩과 디폴트 인자의 충돌나는 경우에는 허용하지 않는다.
+
 
     return 0;
 }
