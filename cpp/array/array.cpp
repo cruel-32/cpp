@@ -50,7 +50,7 @@ int main()
     }
 
     int len = 5;
-    int arr_[len] = {10,11,12,13,14};
+    int arr_[len] = {10,11,12,13,14}; //arr_[len]와 같은 변수를 통한 array 크기 선언은 컴파일러에 따라 동작하지 않을 수도 있다. (c++ 표준이 아님)
     
     array_test(arr_,len);
 
