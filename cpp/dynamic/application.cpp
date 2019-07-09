@@ -19,10 +19,9 @@ int main()
 {   
     cout << "enter a word without a blank" << endl;
     char text[] = {};
+
     cin >> text;
-
     char* words = ReverseWord(text,strlen(text));
-
     cout << "reversed word : " << words << endl;
 
     delete [] words;
