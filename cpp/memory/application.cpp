@@ -1,34 +1,29 @@
 #include <iostream>
+#include <string.h>
 using namespace std;
 
-char* ReverseString(const char* src, int len){
-    cout << "src : " << src << endl;
-    char *reverse = new char [len+1];//왜 +1을 해줄까?
+char* ReverseWord(const char* src, int len){
+    //왜 +1을 해줄까?
+    //왜냐하면 마지막은 NULL값이 들어가야 문자열의 끝을 알릴 수 있다.
+    char* reverse = new char [len+1];
 
     for(int i=0; i<len; i++){
-        cout << "src[" << len-i-1 << "] : " << src[len-i-1] << endl;
         reverse[i] = src[len-i-1];
     }
 
-    reverse[len] = NULL; //왜냐하면 마지막은 NULL값이 들어가야 문자열의 끝을 알릴 수 있다.
-    cout << "reverse : " << reverse << endl;
+    reverse[len] = '\0'; //NULL하면 warning뜸. 여튼 문자의 끝임을 알려준다.
     return reverse;
 }
 
 int main()
 {   
-    // char *ch = new char [20];
-    // cout << "enter a word";
-    // cin >> ch;
+    cout << "enter a word without a blank" << endl;
+    char text[] = {};
+    cin >> text;
 
-    // char *words = ReverseString(ch,20);
+    char* words = ReverseWord(text,strlen(text));
 
-    char ch[11] = "enterAword";
-    cout << "ch : " << ch << endl;
-
-    char *words = ReverseString(ch,11);
-    cout << "words : " << words << endl;
-
+    cout << "reversed word : " << words << endl;
 
     delete [] words;
     words = NULL;
