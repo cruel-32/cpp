@@ -13,16 +13,10 @@ int main()
     cout << "cppstyle : " << cppstyle << endl;
 
     string cppstylep = "Yes, Iam.";
-    const char* cstylep = NULL;
+    const char* cstylep = cppstylep.c_str(); //c++ -> c 스타일로 읽기전용으로 읽어들일 경우 c_str사용
 
-    cstylep = cppstylep.c_str(); //c스타일의 문자열 주소를 반환한다.
-    
     cout << "cppstylep : " << cppstylep << endl;
     cout << "cstylep : " << cstylep << endl;
-
-
-    char test[] = "this is a test word";
-
 
     return 0;
 }
