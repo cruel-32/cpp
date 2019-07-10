@@ -20,9 +20,14 @@ int main()
         cout << "It's a same value" << "\n"; //동일한 값이다. 비교마저 쉽다 지져스
     }
 
-    cout << "Find : " << copy.find("sty") << "\n"; //find는 단어를 검색하고 offset을 반
+    cout << "Find : " << copy.find("sty") << "\n"; //find는 단어를 검색하고 offset을 반환
 
+    string path = "D:\\work\\c++\\cpp\\string\\cppstyle.cpp";
+    int len = path.size();
+    string ext = path.substr(len-4,4); //첫번째 인자 : startpoint, 두번째 인자 : length
+    cout << "extention = " << ext << "\n";
 
     return 0;
 }
+
 //원티드 TjQ6woxEg5 ㅋㅋ
