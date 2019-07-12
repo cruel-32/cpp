@@ -9,7 +9,7 @@
         "javascript.implicitProjectConfig.experimentalDecorators": true,
         "C_Cpp.updateChannel": "Insiders",
         "code-runner.executorMap": {
-            "cpp": "cd $dir && g++ $fileName -o $fileNameWithoutExt && $dir$fileNameWithoutExt",
+            "cpp": "cd $dir && g++ -o $fileNameWithoutExt *.cpp && $dir$fileNameWithoutExt",
             "python": "set PYTHONIOENCODING=utf8 && python",
         },
         "terminal.integrated.shell.windows": "C:\\Windows\\sysnative\\cmd.exe",
