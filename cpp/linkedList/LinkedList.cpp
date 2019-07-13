@@ -13,9 +13,22 @@ LinkedList* createList(){
     LinkedList *linkedList = new LinkedList;
     linkedList->head = head;
 
-    cout << "linkedList : " << linkedList << endl;
-
     return linkedList;
+}
+
+Node* findNode(LinkedList *linkedList, void *data = NULL){
+    Node *targetNode = linkedList->head;
+
+    if(data == NULL){
+        while (targetNode->next != NULL){
+            targetNode = targetNode->next;
+        }
+    } else {
+        while (targetNode->data != data){
+            targetNode = targetNode->next;
+        }
+    }
+    return targetNode;
 }
 
 Node* insertNode(LinkedList *linkedList, void* data){
@@ -24,7 +37,9 @@ Node* insertNode(LinkedList *linkedList, void* data){
     old = findNode(linkedList);
     old->next = newNode;
     newNode->prev = old;
+    newNode->next = NULL;
     newNode->data = data;
+
     return newNode;
 }
 
@@ -35,30 +50,11 @@ void removeNode(Node *target){
     delete target;
 }
 
-//데이터값을 넘기면 해당 node를 찾아주고 넘기지 않으면 마지막 node를 찾아서 반환해줌.
-Node* findNode(LinkedList *linkedList, void *data = NULL){
-    cout << "data : " << data << "\n";
-    Node *targetNode = linkedList->head;
-
-    if(data == NULL){
-        cout << "find last node";
-        while (targetNode->next != NULL){
-            targetNode = targetNode->next;
-        }
-    } else {
-        cout << "find node at";
-
-        while (targetNode->data != data){
-            targetNode = targetNode->next;
-        }
-    }
-    return targetNode;
-}
 
 void doLoofAction(LinkedList *linkedList, void (*callback)(void*)){
-    Node *targetNode = linkedList->head;
+    Node *targetNode = linkedList->head->next;
     
-    while (targetNode->data != NULL){
+    while (targetNode != NULL){
         callback(targetNode->data);
         targetNode = targetNode->next;
     }

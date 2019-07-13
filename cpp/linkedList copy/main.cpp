@@ -11,9 +11,10 @@ int main()
     int menuNum = 0;
 
     LinkedList *testList = createList();
+    cout << "testList : " << testList << endl;
 
     while(menuNum != 5){
-        cout << "Enter a meunu number (1~5)" << endl;
+        cout << "Enter a meunu number" << endl;
         cout << "[1] insert a student infomation" << endl;
         cout << "[2] remove a student infomation" << endl;
         cout << "[3] show a student infomation" << endl;
@@ -27,31 +28,30 @@ int main()
                 cout << "back home" << endl;
                 break;
             case insertMenu:
-                cout << "=====insert student infomation=====" << endl;
+                cout << "=====insert menu=====" << endl;
                 student_number++;
                 Student *student;
                 student = createStudentInfo(student_number);
+                cout << "testList : " << testList << endl;
 
-                Node* insertedNode;
-                insertedNode = insertNode(testList, student);
+                // insertNode(testList, student);
                 break;
             case removeMenu:
-                cout << "=====remove student infomation=====" << endl;
+                cout << "=====remove menu=====" << endl;
                 break;
             case showOneStudent:
                 cout << "=====show a student infomation menu=====" << endl;
                 break;
             case showAllStudents:
                 cout << "=====show all students infomation menu=====" << endl;
-                doLoofAction(testList, showStudentInfo);
+                // doLoofAction(); //testList, showStudentInfo
                 break;
             case endProgram:
                 cout << "Good Bye" << endl;
                 break;
             default:
-                cout << "Enter a correct number" << endl;
                 break;
-        }
+        };
     }
 
     return 0;

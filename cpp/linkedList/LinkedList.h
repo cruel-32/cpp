@@ -17,5 +17,5 @@ void removeNode(Node *target);
 
 Node* findNode(LinkedList *linkedList ,void *data);
 
-void doLoofAction(LinkedList *linkedList, void (*callback)(void*))
+void doLoofAction(LinkedList *linkedList, void (*callback)(void*));
 
