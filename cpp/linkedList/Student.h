@@ -6,3 +6,6 @@ struct Student {
     float math;
 };
 
+Student* createStudentInfo(int student_number);
+
+void showStudentInfo(void* data);
