@@ -15,7 +15,9 @@ Node* insertNode(LinkedList *linkedList, void* data);
 
 void removeNode(Node *target);
 
-Node* findNode(LinkedList *linkedList ,void *data);
+Node* findLastNode(LinkedList *linkedList);
+
+Node* findNodeByStudentNumber(LinkedList *linkedList, int student_number);
 
 void doLoofAction(LinkedList *linkedList, void (*callback)(void*));
 

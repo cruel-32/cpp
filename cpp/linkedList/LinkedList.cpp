@@ -1,6 +1,7 @@
 #include <iostream>
 using namespace std;
 
+#include "Student.h"
 #include "LinkedList.h"
 
 LinkedList* createList(){
@@ -16,25 +17,34 @@ LinkedList* createList(){
     return linkedList;
 }
 
-Node* findNode(LinkedList *linkedList, void *data = NULL){
+Node* findLastNode(LinkedList *linkedList){
     Node *targetNode = linkedList->head;
-
-    if(data == NULL){
-        while (targetNode->next != NULL){
-            targetNode = targetNode->next;
-        }
-    } else {
-        while (targetNode->data != data){
-            targetNode = targetNode->next;
-        }
+    while (targetNode->next != NULL){
+        targetNode = targetNode->next;
     }
+    return targetNode;
+}
+
+Node* findNodeByStudentNumber(LinkedList *linkedList, int student_number){
+    Node *targetNode = linkedList->head;
+    Student *studuentData;
+    do
+    {
+        targetNode = targetNode->next;
+        if(targetNode == NULL){
+            break;
+        } else {
+            studuentData = (Student*)(targetNode->data);
+        }
+    } while (studuentData->student_number != student_number);
+
     return targetNode;
 }
 
 Node* insertNode(LinkedList *linkedList, void* data){
     Node *newNode = new Node;
     Node *old;
-    old = findNode(linkedList);
+    old = findLastNode(linkedList);
     old->next = newNode;
     newNode->prev = old;
     newNode->next = NULL;
@@ -44,8 +54,10 @@ Node* insertNode(LinkedList *linkedList, void* data){
 }
 
 void removeNode(Node *target){
+    if(target->next){
+        target->prev->next = target->next;
+    }
     target->next->prev = target->prev;
-    target->prev->next = target->next;
     // delete target->data;
     delete target;
 }
@@ -55,7 +67,12 @@ void doLoofAction(LinkedList *linkedList, void (*callback)(void*)){
     Node *targetNode = linkedList->head->next;
     
     while (targetNode != NULL){
+        cout << "====================" << endl;
         callback(targetNode->data);
         targetNode = targetNode->next;
+        cout << "====================" << endl;
+    }
+    if(targetNode == NULL){
+        cout << "no more data" << endl;
     }
 }

@@ -37,9 +37,32 @@ int main()
                 break;
             case removeMenu:
                 cout << "=====remove student infomation=====" << endl;
+                cout << "=====enter student a student number=====" << endl;
+
+                int remove_number;
+                cin >> remove_number;
+                Node* removeTargetNode;
+                removeTargetNode = findNodeByStudentNumber(testList, remove_number);
+                if(removeTargetNode == NULL){
+                    cout << "no data"<< endl;
+                } else {
+                    removeNode(removeTargetNode);
+                }
                 break;
             case showOneStudent:
                 cout << "=====show a student infomation menu=====" << endl;
+                cout << "=====enter student a student number=====" << endl;
+
+                int show_number;
+                cin >> show_number;
+                Node* showTargetNode;
+                showTargetNode = findNodeByStudentNumber(testList, show_number);
+
+                if(showTargetNode == NULL){
+                    cout << "no data"<< endl;
+                } else {
+                    showStudentInfo(showTargetNode->data);
+                }
                 break;
             case showAllStudents:
                 cout << "=====show all students infomation menu=====" << endl;

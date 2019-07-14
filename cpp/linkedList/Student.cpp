@@ -31,4 +31,3 @@ void showStudentInfo(void* data){
     cout << "student english score : " << student->english << "\n";
     cout << "student math score : " << student->math << "\n";
 }
-
