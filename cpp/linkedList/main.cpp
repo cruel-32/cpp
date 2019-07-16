@@ -61,6 +61,7 @@ int main()
                 if(showTargetNode == NULL){
                     cout << "no data"<< endl;
                 } else {
+                    cout << "showStudentInfo"<< endl;
                     showStudentInfo(showTargetNode->data);
                 }
                 break;

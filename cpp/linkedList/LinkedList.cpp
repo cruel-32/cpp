@@ -54,12 +54,13 @@ Node* insertNode(LinkedList *linkedList, void* data){
 }
 
 void removeNode(Node *target){
-    if(target->next){
-        target->prev->next = target->next;
-    }
-    target->next->prev = target->prev;
-    // delete target->data;
+    if(target->next != NULL){
+        target->next->prev = target->prev;
+    } 
+    target->prev->next = target->next;
+    delete target->data; //지워주지 않으면 메모리 누수. 하지만 warning이 뜨는거 왜 때문?
     delete target;
+    target = NULL;
 }
 
 
