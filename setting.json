@@ -4,7 +4,7 @@
     "C_Cpp.updateChannel": "Insiders",
     "code-runner.executorMap": {
         "cpp": "cd $dir && g++ -o $fileNameWithoutExt *.cpp && $dir$fileNameWithoutExt",
-        "python": "set PYTHONIOENCODING=utf8 && python",
+        "python": "set PYTHONIOENCODING=utf8 && python"
     },
     "terminal.integrated.shell.windows": "C:\\Windows\\sysnative\\cmd.exe",
     "code-runner.runInTerminal": true,
