@@ -17,6 +17,7 @@ class InlinePosition {
 
          //생성자 함수
         InlinePosition(int x, int y); //생성자 함수 (오버로딩)
+        int getExternalX(InlinePosition testIp, int (InlinePosition::*getExX)()); 
 };
 
 inline void InlinePosition::setX(int x){

@@ -4,6 +4,7 @@ using namespace std;
 #include "Person.h"
 #include "NeedConstructor.h"
 #include "InlinePosition.h"
+#include "ConstTest.h"
 
 int main(){
     cout << "class practice" << endl;
@@ -46,6 +47,28 @@ int main(){
     cout << "ip.getY() : " << ip.getY() << endl;
     ip.setY(20);
     cout << "ip.getY() : " << ip.getY() << endl;
+
+    ConstTest ct(10,20);
+    // const ConstTest ct(10,20);
+
+    //객체를 const로 선언시 const로 된 멤버함수만 호출 가능
+    // cout << "ct.getX() : " << ct.getX() << endl;
+
+    cout << "ct.getConstX() : " << ct.getConstX() << endl;
+
+    //멤버함수에 대한 포인터
+    typedef void(InlinePosition::*IpSetX)(int);
+    IpSetX ipSetX = &InlinePosition::setX;
+    (ip.*ipSetX)(100);
+    cout << "ip.getX() : " << ip.getX() << endl;
+
+    //그렇다면 함수를 매개변수로 받는 함수는 어떻게 실행하면 될까
+    InlinePosition testIp(123,2);
+    InlinePosition testIp2(110,220);
+    //인스턴스까지 같이 넘기면 실행할 수 있는데
+    //인스턴스를 안넘기면 실행이 불가능...
+    cout << "getExternalX : " << testIp2.getExternalX(testIp, testIp.getX) << endl;
+
 
     return 0;
 }
