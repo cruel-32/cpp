@@ -9,7 +9,6 @@ public:
     Node* prev;
     Node* next;
     void* data;
-    
 };
 
 class LinkedList {
@@ -18,6 +17,7 @@ public:
 
     LinkedList();
     void addData(void* data);
+    void showAllNodes();
 };
 
 #endif
