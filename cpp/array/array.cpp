@@ -50,15 +50,15 @@ int main()
     }
 
     int len = 5;
-    int arr_[len] = {10,11,12,13,14}; //arr_[len]와 같은 변수를 통한 array 크기 선언은 컴파일러에 따라 동작하지 않을 수도 있다. (c++ 표준이 아님)
+    int arr_[5] = {10,11,12,13,14}; //arr_[len]와 같은 변수를 통한 array 크기 선언은 컴파일러에 따라 동작하지 않을 수도 있다. (c++ 표준이 아님)
     
-    array_test(arr_,len);
+    array_test(arr_,5);
 
     for(int q=0; q<len; q++){
         cout << "arr_[q] : " << arr_[q] << "\n"; //값이 변해있다.
     }
 
-    char multi_arr[len][20] = {"test", "code", "c++", "develop", "language"}; //다중배열을 함수에 넘기는 방법
+    char multi_arr[5][20] = {"test", "code", "c++", "develop", "language"}; //다중배열을 함수에 넘기는 방법
 
     multi_array_test(multi_arr, len); //함수 다중배열의 이름을 넘긴다. 함수명은 &multi_arr[0] 과 같다. 즉, 배열의 주소값은 첫번째 원소의 주소값과 동일하다.
 
